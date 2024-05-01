@@ -20,6 +20,8 @@ const displayPeople = () => {
     newButton.id = i
     let nextUser = document.createElement("p")
     nextUser.style.margin = "0"
+    nextUser.style.marginTop = "10px"
+
     console.log(userArray.results[i].name.first)
     nextUser.innerHTML = userArray.results[i].name.first + " " + userArray.results[i].name.last
     // list.appendChild(document.createElement("br"))
@@ -38,6 +40,7 @@ const expandDetails = (user, button) => {
     address.innerHTML = user.location.street.number + " " + user.location.street.name + ", " + user.location.city + " " + user.location.state + " " + user.location.postcode
     button.parentElement.insertBefore(address, button)
     button.innerHTML = "-"
+    address.style.margin = "0"
     isExpandedList[button.id] = true
   } else {
     //close
