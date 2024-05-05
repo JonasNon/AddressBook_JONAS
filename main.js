@@ -4,7 +4,11 @@ let currentUser
 
 window.onload = function() {
   fetch('https://randomuser.me/api/?results=10')
-    .then(res => res.json())
+  .then(res => {
+    if(!res.ok) {
+      throw Error(res.statusText)
+    } return res.json()
+  })
     .then(user => userArray = user)
     .then(user => displayPeople())
 
